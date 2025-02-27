@@ -21,7 +21,7 @@ class GlyphWrapper() {
 
     public var state = mutableStateListOf<Boolean>(*(Array<Boolean>(26){false}))
     
-    public fun init(applicationContext: Context) {
+    public fun init(context: Context) {
         glyphCallback = object : GlyphManager.Callback {
             override fun onServiceConnected(componentName: ComponentName) {
                 if (Common.is20111()) glyphManager?.register(Common.DEVICE_20111)
@@ -40,7 +40,7 @@ class GlyphWrapper() {
             }
         }
 
-        glyphManager = GlyphManager.getInstance(applicationContext)
+        glyphManager = GlyphManager.getInstance(context)
         glyphManager?.init(glyphCallback)
     }
 
